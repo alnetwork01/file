@@ -192,7 +192,7 @@ if [ -s $LOG_FILENAME ]; then
 fi
 # 200MB
 FREE_SPACE_MIN=$((2*100*1024*1024))
-FREE_SPACE_BLOCKS=$(df --total | grep total | awk '{print $2}')
+FREE_SPACE_BLOCKS=$(df -T | grep total | awk '{print $2}')
 FREE_SPACE_BYTES=$((FREE_SPACE_BLOCKS*1000))
 FREE_SPACE_PRETTY=$(numfmt --to iec --format "%8.4f" "$FREE_SPACE_BYTES" | awk '{print $1}')
 
